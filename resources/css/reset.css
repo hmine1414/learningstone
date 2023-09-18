@@ -54,7 +54,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 
 
 /* layout */
-.header {opacity:0; position:absolute; left:0; top:0; z-index:50; width:100%; height:8.8rem; transition:opacity 0.5s 3s}
+.header {opacity:0; position:absolute; left:0; top:0; z-index:50; width:100%; height:8.8rem; transition:opacity 0.5s 3s)}
 .header.opacityShow {opacity:1}
 .header .header-inner {position:relative; width:100%; min-width:138rem; max-width:138rem; height:100%; margin:0 auto; padding:0; display:flex; align-items:center; justify-content:space-between}
 .header .header-inner .logo {width:15rem; height:3.7rem}
@@ -62,6 +62,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .header .header-inner ul.topmenu {width:45rem; height:3rem; display:flex; align-items:center; justify-content:space-between}
 .header .header-inner ul.topmenu li a {position:relative; height:3rem; color:#fff; font-size:2rem; transition:color 0.2s; font-weight:600}
 .header .header-inner ul.topmenu li a:hover {color:#fff}
+.header .header-inner ul.topmenu li.on a {color:#fff; font-weight:700}
 .header .header-inner .btnset {height:4.8rem}
 .header .header-inner .btnset button {width:10.5rem; height:4.8rem; margin-left:0.8rem; background:#fff; border-radius:0.8rem; transition:all 0.3s; font-size:1.6rem; color:#000; font-weight:700}
 .header .header-inner .btnset button.btn-inquiry:hover {background-image:linear-gradient(#4a29f0 0%, #fd019a 100%); background-origin:border-box; background-clip:content-box, border-box; color:#fff}
@@ -72,6 +73,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .header.toFixed .header-inner .logo a {background:url('../images/logo.svg') no-repeat 0 0}
 .header.toFixed .header-inner ul.topmenu li a {color:#000}
 .header.toFixed .header-inner ul.topmenu li a:hover {color:#511cc3}
+.header.toFixed .header-inner ul.topmenu li.on a {color:#511cc3}
 .header.toFixed .header-inner .btnset button.btn-inquiry {transition:background 0.3s; background-image:linear-gradient(#4a29f0 0%, #fd019a 100%); background-origin:border-box; background-clip:content-box, border-box; color:#fff}
 .header.toFixed .header-inner .btnset button.btn-inquiry:hover {background-image:linear-gradient(#280db4 0%, #ae016e 100%)}
 .header.toFixed .header-inner .btnset button.btn-download {border:1px solid #dfdfdf; color:#000}
