@@ -79,9 +79,9 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .header.toFixed .header-inner .btnset button.btn-download {border:1px solid #dfdfdf; color:#000}
 .header.toFixed .header-inner .btnset button.btn-download:hover {background:#000; border-color:#000; color:#fff}
 
-
 .footer {position:relative; height:66rem; padding:11rem 0 0 0; background:url('../images/bg_footer.jpg') no-repeat 50% / cover}
-.footer .btn-gotop {position:absolute} 
+.footer .btn-gotop {position:absolute; right:0; top:0; width:6rem; height:6rem; overflow:hidden; background:#fff url('../images/btn_gotop_off.png') no-repeat 50%; background-size:100% auto; transition:background 0.3s; border-radius:50%; font-size:0; text-indent:-99999px}
+.footer .btn-gotop:hover {background:#030419 url('../images/btn_gotop_on.png') no-repeat 50%; background-size:100% auto}
 .footer .innerbox {position:relative; width:138rem; margin:0 auto}
 .footer .innerbox .ucom-logo {margin-bottom:7rem; font-size:0}
 .footer .innerbox .copyrights address {color:#fff; font-size:2.4rem; font-weight:700}
@@ -96,7 +96,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .mainvod img {width:100%; height:100%}
 .maincontents .mainvod .videobox {position:relative; width:100%; height:100%; overflow:hidden; margin:0}
 .maincontents .mainvod .videobox video {width:100%; height:100%}
-
+.maincontents .mainvod .quickbox {display:none}
 .maincontents .req-learningstone {position:relative; width:100%; height:190rem; background:#fff}
 .maincontents .req-learningstone .innerbox {width:138rem; height:100%; padding:24rem 0; margin:0 auto; overflow:hidden}
 .maincontents .req-learningstone h1 {width:100%; margin:0 auto 0; text-align:center}
@@ -105,17 +105,11 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .req-learningstone h2 {position:absolute; left:14%; bottom:17rem; z-index:40; width:86%; height:24rem; overflow:hidden}
 .maincontents .req-learningstone h2::before {position:absolute; left:0; top:0; z-index:41; width:5.8rem; height:100%; background:url('../images/bg_gradation.png') no-repeat 0 0; content:''}
 .maincontents .req-learningstone h2 strong {position:absolute; left:0; bottom:0; display:block; width:574rem; height:24rem; animation:textFlow 6s linear infinite; color:#eaeaea; font-weight:700; font-size:20rem}
-
-@keyframes textFlow {
-  0% {left:0}
-  100% {left:-100%}
-}
-
 .maincontents .req-learningstone .leargingstone-circle-outer {position:relative; width:108.4rem; height:108.4rem; margin:0 auto 0; display:flex; align-items:center; justify-content:center}
 .maincontents .req-learningstone .leargingstone-circle-outer::before {position:absolute; left:0; top:0; width:100%; height:100%; background:url('../images/bg_dotcircle_02.png') no-repeat 50%; content:''; animation:spin 120s linear infinite reverse}
 .maincontents .req-learningstone .leargingstone-circle-outer::after {position:absolute; left:-20rem; top:-20rem; width:148.4rem; height:148.4rem; background:url('../images/bg_dotcircle_03.png') no-repeat 50%; content:''; animation:spin 160s linear infinite}
 .maincontents .req-learningstone .leargingstone-circle {width:76.6rem; height:76.6rem; margin:0 auto; background:url('../images/bg_imgbox_circle.png') no-repeat 50%}
-.maincontents .req-learningstone .leargingstone-circle > ul {position:relative; z-index:30; width:76.6rem; height:76.6rem; margin:0 auto; background:url('../images/bg_dotcircle_01.png') no-repeat 0 0; border-radius:50%; animation:spin 85s linear infinite}
+.maincontents .req-learningstone .leargingstone-circle > ul.pc-only {position:relative; z-index:30; width:76.6rem; height:76.6rem; margin:0 auto; background:url('../images/bg_dotcircle_01.png') no-repeat 0 0; border-radius:50%; animation:spin 85s linear infinite}
 .maincontents .req-learningstone .leargingstone-circle > ul > li {position:absolute; z-index:31; width:6rem; height:6rem; text-align:center; border-radius:50%; background-size:100% 100%; cursor:pointer; font-size:0; text-indent:-99999px; animation:spin 20s linear infinite reverse; transition:background 0.4s}
 .maincontents .req-learningstone .leargingstone-circle > ul > li.trs {position:absolute; z-index:-1; width:0; height:0; text-align:center; border-radius:0; background:transparent; pointer-events:none; cursor:default}
 .maincontents .req-learningstone .leargingstone-circle > ul > li.stone-1 {background:url('../images/icon_stone_01_off.svg') no-repeat 0 0}
@@ -153,10 +147,9 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:6.4rem; line-height:8.4rem; font-weight:700; text-align:center}
 }
 @media (max-width:1023px) {
-	.maincontents .video-meeting .display-board .board-item .board-wrap {padding:0 3.6rem 9.2rem 3.6rem; height:67rem}
+	.maincontents .video-meeting .display-board .board-item .board-wrap {padding:0 3.6rem 5.2rem 3.6rem; height:50rem}
 	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:3.2rem; line-height:4.4rem; font-weight:700}
 }
-
 
 .maincontents .our-function {width:100%; height:auto; padding:24rem 0 12rem 0}
 .maincontents .our-function h1 {width:100%; margin:0 auto 0; text-align:center}
@@ -171,9 +164,8 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .our-function .slider_wrap .brand_slider:nth-child(even) {margin-top:4rem}
 .maincontents .our-function .slider_wrap .brand_slider:nth-child(even) .brand_item {display:-webkit-box; display:-ms-flexbox; display:-webkit-flex; display:flex; -webkit-box-pack:center; -ms-flex-pack:center; -webkit-justify-content:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; -webkit-align-items:center; align-items:center; margin-right:0; margin-left:4rem}
 .maincontents .our-function .slider_wrap .brand_slider:nth-child(2) {transform:translateX(-100px)}
-/* .maincontents .our-function .slider_wrap .partner_slider.in-view {opacity:1; transform:translateX(0)} */
 .maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {position:absolute; top:0; left:0; display:flex; align-items:center; justify-content:center; width:100%; height:100%; background:rgba(0,0,0,0.4); text-align:center; opacity:0; visibility:hidden; transition:.3s; color:#fff; font-size:2.8rem; font-weight:700}
-.maincontents .our-function .slider_wrap .brand_slider .brand_item:hover .hover-txt {opacity:1; visibility:visible}
+.maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {opacity:1; visibility:visible}
 
 .maincontents .realtime-edu {height:96rem; padding:11rem 0 0 0; background:#fff}
 .maincontents .realtime-edu h1 {width:100%; max-width:138rem; margin:0 auto 0; text-align:center}
@@ -196,9 +188,11 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dt strong {background:url('../images/txt_slide_03.png') no-repeat 0 0}
 .maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dd {width:calc(100% - 61rem)}
 .maincontents .realtime-edu .realtime-slider ul li.realtime-con4 dl dt strong {background:url('../images/txt_slide_04.png') no-repeat 0 0}
-.maincontents .realtime-edu .realtime-slider .swiper-pagination {position:absolute; left:0; bottom:14.8rem; height:6.4rem; color:#bebebe; font-size:2.2rem; line-height:6.4rem; font-weight:100}
-.maincontents .realtime-edu .realtime-slider .swiper-pagination .swiper-pagination-current {display:inline-block; margin-right:1rem; color:#511cc3; font-size:4.8rem; font-weight:700; line-height:6.2rem}
-.maincontents .realtime-edu .realtime-slider .swiper-pagination .swiper-pagination-total {display:inline-block; margin-left:0.8rem; color:#999; font-size:2.2rem; font-weight:400}
+.maincontents .realtime-edu .realtime-slider .swiper-pagination-cnt {position:absolute; left:0; bottom:14.8rem; height:6.4rem; color:#bebebe; font-size:2.2rem; line-height:6.4rem; font-weight:100}
+.maincontents .realtime-edu .realtime-slider .swiper-pagination-cnt .swiper-pagination-current {display:inline-block; margin-right:1rem; color:#511cc3; font-size:4.8rem; font-weight:700; line-height:6.2rem}
+.maincontents .realtime-edu .realtime-slider .swiper-pagination-cnt .swiper-pagination-total {display:inline-block; margin-left:0.8rem; color:#999; font-size:2.2rem; font-weight:400}
+.maincontents .realtime-edu .realtime-slider .swiper-pagination-m {display:none}
+.maincontents .realtime-edu .realtime-slider .swiper-notification {display:none}
 
 .maincontents .strength {height:113.2rem; padding:20rem 0 0 0; background:url('../images/bg_strength.jpg') no-repeat 50% / cover}
 .maincontents .strength h1 {width:100%; margin:0 auto 0; text-align:center}
@@ -211,9 +205,10 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .strength .strength-tabslider ul.left-tab {width:calc(100% - 79.2rem); margin-right:14.5rem}
 .maincontents .strength .strength-tabslider ul.left-tab li {position:relative; width:100%; min-height:10rem; padding:3.2rem 0; display:flex; align-items:flex-start; justify-content:center; flex-direction:column; cursor:pointer; transition:height 0.5s}
 .maincontents .strength .strength-tabslider ul.left-tab li::after {position:absolute; left:0; bottom:0; width:100%; height:1px; background:rgba(255,255,255,0.1); content:''}
-.maincontents .strength .strength-tabslider ul.left-tab li::before {position:absolute; left:0; bottom:0; opacity:0; width:0; height:1px; background:#fff; transition:width 4s; content:''}
+.maincontents .strength .strength-tabslider ul.left-tab li::before {position:absolute; left:0; bottom:0; opacity:0; width:0; height:1px; background:#fff; transition:width 5s; content:''}
 .maincontents .strength .strength-tabslider ul.left-tab li.on::before {opacity:1; width:100%}
 .maincontents .strength .strength-tabslider ul.left-tab li p {display:none; margin-top:2rem; padding:0 0 0 4rem; font-size:2rem; line-height:2.7rem; color:#fff; font-weight:200}
+.maincontents .strength .strength-tabslider ul.left-tab li span.pic {display:none}
 .maincontents .strength .strength-tabslider ul.left-tab li strong {position:relative; padding:0 0 0 4rem; font-size:2.4rem; color:rgba(255,255,255,0.2); font-weight:600; letter-spacing:0.02rem; transition:color 0.3s}
 .maincontents .strength .strength-tabslider ul.left-tab li strong::before {position:absolute; left:0; top:0; color:rgba(255,255,255,0.2); font-size:2.4rem; font-weight:200; transition:color 0.3s}
 .maincontents .strength .strength-tabslider ul.left-tab li:nth-child(1) strong::before {content:'01'}
@@ -226,34 +221,158 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .strength .strength-tabslider ul.left-tab li.on strong {color:#fff}
 .maincontents .strength .strength-tabslider ul.left-tab li.on strong::before {color:#fff}
 
-
-
+@keyframes textFlow {
+	0% {left:0}
+	100% {left:-100%}
+}
+@-webkit-keyframes textFlow {
+	0% {left:0}
+	100% {left:-100%}
+}
 
 @keyframes spin {
-  100% {transform:rotate(1turn)}
+  100% {-webkit-transform:rotate(1turn); -moz-transform:rotate(1turn); -ms-transform:rotate(1turn); -o-transform:rotate(1turn); transform:rotate(1turn)}
 }
+@-webkit-keyframes spin {
+  100% {-webkit-transform:rotate(1turn); -moz-transform:rotate(1turn); -ms-transform:rotate(1turn); -o-transform:rotate(1turn); transform:rotate(1turn)}
+}
+
 @media all and (max-width:1850px){
 }
 @media all and (max-width:1380px){
 } 
 
-@media all and (max-width:1280px){
+@media all and (max-width:1200px){
 	.pc-only {display:none}
 	.mobile-only {display:block}
 
-	body {overflow-x:hidden; font-size:9px}
+	body {overflow-x:hidden; font-size:10px}
 
 	.tslide {position:relative; overflow-x:auto; overflow-y:hidden; white-space:nowrap}
 	.tslide > ul {position:relative; width:auto; -webkit-transition:-webkit-transform .4s ease-in-out; transition:-webkit-transform .4s ease-in-out; transition:transform .4s ease-in-out; transition:transform .4s ease-in-out, -webkit-transform .4s ease-in-out}
 	.tslide > ul > li {display:-webkit-inline-box; display:-ms-inline-flexbox; display:inline-flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; font-size:0}
+	
+	.header {height:11.5rem}
+	.header .header-inner {width:92%; min-width:92%; max-width:92%; height:100%; padding:1.5rem 0 0 0; margin:0 auto; flex-direction:column; justify-content:flex-start; align-items:flex-start}
+	.header .header-inner .logo {margin:0}
+	.header .header-inner ul.topmenu {width:100%; margin:2rem 0 0 0}
+	.header .header-inner .btnset {display:none}
+	
+	.footer .innerbox {width:92%; margin:0 auto}
+	.footer .innerbox .copyrights address {font-size:1.8rem; line-height:2.6rem}
+	.footer .innerbox .copyrights ul li label {font-size:1.5rem}
+	.footer .innerbox .copyrights ul li p {font-size:1.8rem}
+	.footer .innerbox .copyrights > p {margin-top:3rem; font-size:1.3rem}
+
+	.maincontents .mainvod {position:relative; height:60rem; background:#333}
+	.maincontents .mainvod .videobox {position:relative; z-index:30}
+	.maincontents .mainvod .videobox video {display:none}
+	.maincontents .mainvod .quickbox {display:block; position:absolute; z-index:40; right:2rem; bottom:2rem; width:6rem; height:6rem; overflow:hidden; border-radius:3rem; transition:width 0.5s}
+	.maincontents .mainvod .quickbox .btn-holder {position:absolute; right:-1px; top:0; z-index:42; width:6rem; height:6rem; background:#000; border-radius:50%; font-size:0; cursor:pointer}
+	.maincontents .mainvod .quickbox .btn-holder::after, .btn-holder::before {display:inline-block; content:''; top:50%; left:50%; position:absolute; width:2.6rem; height:2px; margin:0 0 0 -1.3rem; border-radius:0; background:#fff; 
+	-webkit-transform-origin:center center; transform-origin:center center; transition:transform 0.4s}
+	.maincontents .mainvod .quickbox .btn-holder::before {-webkit-transform:rotate(-90deg); transform:rotate(-90deg)}
+	.maincontents .mainvod .quickbox .btn-holder::after {-webkit-transform:rotate(0deg); transform:rotate(0deg)}
+	.maincontents .mainvod .quickbox.open {width:25.7rem}
+	.maincontents .mainvod .quickbox.open .btn-holder::before {-webkit-transform:rotate(-45deg); transform:rotate(-45deg)}
+	.maincontents .mainvod .quickbox.open .btn-holder::after {-webkit-transform:rotate(45deg); transform:rotate(45deg)}
+	.maincontents .mainvod .quickbox.open > div {visibility:visible; width:22.7rem; background:#fff; opacity:1}
+	.maincontents .mainvod .quickbox > div {visibility:hidden; opacity:0; width:22.7rem; height:100%; padding:0 4.8rem 0 2rem; border-radius:3rem 0 0 3rem; transition:all 0.3s; display:flex; align-items:center; justify-content:space-between}
+	.maincontents .mainvod .quickbox > div a {color:#000; font-size:1.5rem; font-weight:700}
+	.maincontents .mainvod .quickbox > div a:first-child {width:95px}
+	
+	.maincontents .req-learningstone .innerbox {width:100%; padding:18rem 0}	
+	
+	.maincontents .our-function {padding:18rem 0}
 } 
 
 
 @media screen and (max-width:768px) {	
+	.footer {position:relative; height:auto; padding:6rem 0 5rem 0; background:url('../images/bg_footer_m.jpg') no-repeat 50% / cover}
+	.footer .btn-gotop {top:0; width:4rem; height:4rem}
+	.footer .innerbox .ucom-logo {margin-bottom:4rem}
+	.footer .innerbox .ucom-logo img {width:170px}
+	.footer .innerbox .copyrights address {font-size:1.6rem; line-height:2.4rem}
+	.footer .innerbox .copyrights ul li {margin-top:2rem}
+	.footer .innerbox .copyrights ul li label {font-size:1.4rem}
+	.footer .innerbox .copyrights ul li p {font-size:1.6rem; line-height:2.6rem}
+	.footer .innerbox .copyrights > p {margin-top:2rem; font-size:1.2rem}
+
+	.maincontents .req-learningstone {height:150rem}
+	.maincontents .req-learningstone h1 span {font-size:1.6rem}
+	.maincontents .req-learningstone .innerbox {width:100%; padding:12rem 0 0 0}
+	.maincontents .req-learningstone .leargingstone-circle-outer {width:100%; height:auto; margin-top:3rem}
+	.maincontents .req-learningstone .leargingstone-circle-outer::after {display:none}
+	.maincontents .req-learningstone .leargingstone-circle-outer::before {display:none}
+	.maincontents .req-learningstone .leargingstone-circle {position:relative; width:90%; height:57rem; background:none}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents {position:relative; left:0; top:0; transform:0 0; width:100%; height:auto; margin-left:0; margin-top:0; background:url('../images/bg_imgbox_circle.png') no-repeat 50% 0; background-size:100% 100%}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents::after {display:block; padding-bottom:100%; content:''}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul {position:absolute; width:100%; height:100%; padding:3rem}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul li {left:50%; top:50%; transform:translate(-50%, -50%); width:calc(100% - 5.4rem); height:calc(100% - 5.4rem)}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-1 {background-size:100% auto}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-2 {background-size:100% auto}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-3 {background-size:100% auto}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-4 {background-size:100% auto}
+	.maincontents .req-learningstone .leargingstone-circle > ul.mobile-only {position:absolute; left:7.5%; bottom:0; width:85%; height:6rem; display:flex; align-items:center; justify-content:space-between; animation:none; background:none}
+	.maincontents .req-learningstone .leargingstone-circle > ul.mobile-only li {position:static; width:6rem; height:6rem; background-size:100% 100%; animation:none; transition:background 0.4s}
+	.maincontents .req-learningstone .leargingstone-circle > ul.mobile-only li.on {background-size:100% 100%}
+	.maincontents .req-learningstone h1 strong {font-size:4.8rem}
+	.maincontents .req-learningstone h2 {bottom:10rem; line-height:15rem}
+	.maincontents .req-learningstone h2 strong {font-size:10rem; line-height:15rem}
+
+	.maincontents .video-meeting {height:auto}
+	.maincontents .video-meeting .display-board {width:100%}
+	
+	.maincontents .our-function {padding:12rem 0 6rem 0}
+	.maincontents .our-function h1 strong {font-size:3.6rem}
+	.maincontents .our-function h1 span {font-size:1.6rem}
+	.maincontents .our-function .slider_wrap {height:38rem}
+	.maincontents .our-function .slider_wrap .brand_slider {height:16rem}
+	.maincontents .our-function .slider_wrap .brand_slider .brand_item {width:24rem; height:16rem; margin-right:2rem}
+	.maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {font-size:2rem}
+	.maincontents .our-function .slider_wrap .brand_slider:nth-child(even) {margin-top:2rem}
+	.maincontents .our-function .slider_wrap .brand_slider:nth-child(even) .brand_item {margin-left:2rem}
+
+	.maincontents .realtime-edu {height:auto; padding-top:6rem; padding-bottom:6rem}
+	.maincontents .realtime-edu h1 {max-width:90%}
+	.maincontents .realtime-edu h1 strong {font-size:4.8rem}
+	.maincontents .realtime-edu h1 span {font-size:1.6rem}
+	.maincontents .realtime-edu .realtime-slider {width:100%; height:69rem; padding-bottom:5rem}
+	.maincontents .realtime-edu .realtime-slider ul li dl {width:100%; height:100%; padding-bottom:0; align-items:flex-start}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt {display:block; position:absolute; bottom:0; left:5%; width:90%; height:21rem; text-align:center}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt strong {display:block; width:100%; max-width:100%; height:3rem; background-position:50% 50% !important}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt span {display:block; margin-top:2.5rem; font-size:3.6rem; line-height:4.8rem}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt p {width:100%; font-size:1.6rem; line-height:2.4rem}
+	.maincontents .realtime-edu .realtime-slider ul li dl dd {display:block; width:100%; height:calc(100% - 21rem); text-align:center}
+	.maincontents .realtime-edu .realtime-slider ul li dl dd img {width:100%}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dd {width:100%}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dt {width:90%}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dd img {width:90%}
+	.maincontents .realtime-edu .realtime-slider .swiper-pagination-cnt {display:none}
+	.maincontents .realtime-edu .realtime-slider .swiper-pagination-m {position:absolute; left:0; bottom:2rem; width:100%; height:1.2rem; display:flex; align-items:center; justify-content:center}
+	.maincontents .realtime-edu .realtime-slider .swiper-pagination-m .swiper-pagination-bullet {width:1.2rem; height:1.2rem; margin:0 1rem; background:#eaeaea; border-radius:50%; font-size:0}
+	.maincontents .realtime-edu .realtime-slider .swiper-pagination-m .swiper-pagination-bullet.swiper-pagination-bullet-active {background:linear-gradient(#5a26e8, #f3039f)}
+
+	.maincontents .strength {background:url('../images/bg_strength_m.jpg') no-repeat 0 0}
+	.maincontents .strength h1 {margin-bottom:5rem}
+	.maincontents .strength h1 strong {font-size:4.2rem; letter-spacing:0.02rem}
+	.maincontents .strength h1 span {font-size:1.6rem}
+	.maincontents .strength .strength-tabslider {width:100%; margin-top:0; align-items:flex-start}
+	.maincontents .strength .strength-tabslider ul.left-tab {width:calc(100% - 5rem); margin:0 0 0 5rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li {min-height:8rem; padding:2.5rem 0}
+	.maincontents .strength .strength-tabslider ul.left-tab li.on span.pic {display:block}
+	.maincontents .strength .strength-tabslider ul.left-tab li span.pic {width:calc(100% - 4rem); margin-left:4rem; margin-top:3rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li span.pic img {width:100%}
+	.maincontents .strength .strength-tabslider ul.left-tab li strong {font-size:2rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li strong::before {font-size:2rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li p {margin-top:1.2rem; font-size:1.6rem; line-height:2.2rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li::before {left:4rem}
+	.maincontents .strength .strength-tabslider ul.left-tab li::after {left:4rem}
+	.maincontents .strength .strength-tabslider ul.strength-tabimg {display:none}
 	
 }
 
-@media all and (max-width:414px){
+@media all and (max-width:475px){
 	html {font-size:8.5px}
 }
 
