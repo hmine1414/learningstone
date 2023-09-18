@@ -38,7 +38,12 @@
 	<div class="contents">
 		<div class="maincontents">
 			<div class="section mainvod">
-				 <div class="videobox"><img src="resources/images/temp_main.jpg" alt=""></div>
+				 <div class="videobox">
+					<video muted autoplay loop controls>
+						<source src="resources/images//mainvisual.mp4" type="video/mp4">
+						<strong>Your browser does not support the video tag.</strong>
+					  </video>
+				 </div>
 			</div>
 			<div class="section req-learningstone">
 				<div class="innerbox">
@@ -265,6 +270,7 @@
 
 <script type="text/javascript" src="resources/js/front_ui.js"></script>
 <script>
+$(".header").addClass("opacityShow")
 stoneRollingLoad();
 stoneCircleLoad();
 vmScrollLoad();
