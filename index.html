@@ -8,7 +8,6 @@
 <link rel="icon" href="resources/images/favicon.svg">
 <link rel="stylesheet" href="resources/css/reset.css">
 <link rel="stylesheet" href="resources/css/swiper.css">
-<link rel="stylesheet" href="resources/css/animation.css">
 <script src="resources/js/jquery-1.11.2.min.js"></script>
 <script src="resources/js/modernizr.custom.js"></script>
 <script src="resources/js/swiper-bundle.min.js"></script>
@@ -259,115 +258,21 @@
 				</ul>
 				<p>Copyright ⓒ Ucomp. All Right Reserved.</p>
 			</div>
+			<button type="button" class="btn-gotop" title="GO TOP">GO TOP</button>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript" src="resources/js/front_ui.js"></script>
 <script>
-var stgList = $(".strength-tabslider > ul.left-tab > li").length-1;
-var stgIdx = 0;
+stoneRollingLoad();
+stoneCircleLoad();
+vmScrollLoad();
+brandSlideLoad();
+polarinLoad();
+stgLoad();
 
-function stgTabNext(){
-	$(".strength-tabslider > ul.left-tab > li").removeClass("on");
-	$(".strength-tabslider > ul.strength-tabimg > li").removeClass("on").fadeOut();
-	if(stgIdx < stgList){stgIdx++}else{stgIdx = 0}
-	$(".strength-tabslider > ul > li:eq("+stgIdx+")").addClass("on");
-	$(".strength-tabslider > ul.strength-tabimg > li:eq("+stgIdx+")").addClass("on").fadeIn();
-}
-function strengthTabRoll(){	
-	stbTabAni = setInterval(stgTabNext, 4000);
-}
-/* 
-$(".strength-tabslider > ul.left-tab > li").hover(function(){
-	clearInterval(stbTabAni)
-},function(){
-	stbTabAni = setInterval(stgTabNext, 4000);
-}); */
-
-
-
-//$(window).scroll(function() {
-	if($(window).scrollTop() > $(".realtime-edu").offset().top - 500){	
-		$(".strength-tabslider > ul.left-tab > li:eq("+stgIdx+")").addClass("on");
-		$(".strength-tabslider > ul.strength-tabimg > li:eq("+stgIdx+")").addClass("on").fadeIn();	
-		stbTabAni = setInterval(stgTabNext, 4000);
-	}
-//});
-
-/* 
-$(window).scroll(function() {
-	if($(window).scrollTop() > $(".req-learningstone .circle-hiddencontents").offset().top){
-		$(".req-learningstone h2").addClass("ani");
-	}else{
-		$(".req-learningstone h2").removeClass("ani");
-	}
-}); */
-
-/* swiper */
-var vmTimeline = gsap.timeline({
-	scrollTrigger: {
-		trigger: '.video-meeting .display-board',
-		start: 'top 80%',
-		end: '+=1000',
-		toggleActions: 'restart pause reverse pause',
-		scrub: 1.5,
-		markers: false,
-	},
-});
-vmTimeline.set('.video-meeting .display-board', {
-	width: '138rem',
-}).to('.video-meeting .display-board', {
-	width: '192rem',
-});
-ScrollTrigger.matchMedia({
-	"(max-width: 1023px)": function() {
-		vmTimeline.scrollTrigger.disable();
-	},
-	"(min-width: 1024px)": function() {
-		vmTimeline.scrollTrigger.enable();
-	},
-});
-var brandSwiper1 = new Swiper(".brand_slider.slide1", {
-	speed:8000,
-	slidesPerView:"auto",
-	observer:true,
-	observeParents:true,
-	loop:true,
-	freeMode:true,
-	autoplay:{
-		delay:1,
-		disableOnInteraction:false
-	}
-});
-
-var brandSwiper2 = new Swiper(".brand_slider.slide2", {
-	speed:8000,
-	slidesPerView:"auto",
-	observer:true,
-	observeParents:true,
-	loop:true,
-	freeMode:true,
-	autoplay:{
-		delay:1,
-		disableOnInteraction:false
-	}
-});
-
-var swiperPolarin = new Swiper(".realtime-slider", {
-	speed:2000,
-	loop:true,
-	autoplay: {
-		delay:5000,
-		disableOnInteraction: false,
-	},
-	pagination: {
-		el: ".swiper-pagination",
-		type: "fraction"
-	}
-});
-
-function learningstoneCircle(){
+function stoneRollingLoad(){
 	var radius = 383; 
 	var container = $('.leargingstone-circle > ul');
 	var fields = container.find('li');
@@ -385,34 +290,146 @@ function learningstoneCircle(){
 	  angle += step;
 	});
 }
-learningstoneCircle();
 
-$(".leargingstone-circle > ul > li.item").mouseover(function(){
-	var tabClass = $(this).attr("class").split(" ")[1];
-	console.log(tabClass)
-	$(".leargingstone-circle > ul > li.item").removeClass("on");
-	$(this).addClass("on");
-	$(".circle-hiddencontents > ul > li").removeClass("on");
-	$(".circle-hiddencontents > ul > li."+tabClass).addClass("on");
-});
+function stoneCircleLoad(){
+	var lsList = $(".leargingstone-circle > ul > li.item").length-1;
+	var lsIdx = 0;
+	var scNext = function(){
+		$(".leargingstone-circle > ul > li.item").removeClass("on");
+		$(".circle-hiddencontents > ul > li").removeClass("on");
+		if(lsIdx < lsList){lsIdx++}else{lsIdx = 0}
+		$(".leargingstone-circle > ul > li.item:eq("+lsIdx+")").addClass("on");
+		$(".circle-hiddencontents > ul > li:eq("+lsIdx+")").addClass("on");
+	}
+	learningCircleAni = setInterval(scNext, 5000);
 
-var lsList = $(".leargingstone-circle > ul > li.item").length-1;
-var lsIdx = 0;
-function stoneCircleNext(){
-	$(".leargingstone-circle > ul > li.item").removeClass("on");
-	$(".circle-hiddencontents > ul > li").removeClass("on");
-	if(lsIdx < lsList){lsIdx++}else{lsIdx = 0}
-	$(".leargingstone-circle > ul > li.item:eq("+lsIdx+")").addClass("on");
-	$(".circle-hiddencontents > ul > li:eq("+lsIdx+")").addClass("on");
+	$(".leargingstone-circle > ul > li.item").hover(function(){
+		clearInterval(learningCircleAni)
+	},function(){
+		learningCircleAni = setInterval(scNext, 5000);
+	});
+
+	$(".leargingstone-circle > ul > li.item").mouseover(function(){
+		var tabClass = $(this).attr("class").split(" ")[1];
+		//console.log(tabClass)
+		$(".leargingstone-circle > ul > li.item").removeClass("on");
+		$(this).addClass("on");
+		$(".circle-hiddencontents > ul > li").removeClass("on");
+		$(".circle-hiddencontents > ul > li."+tabClass).addClass("on");
+	});
 }
-learningCircleAni = setInterval(stoneCircleNext, 5000);
-$(".leargingstone-circle > ul > li.item").hover(function(){
-	clearInterval(learningCircleAni)
-},function(){
-	learningCircleAni = setInterval(stoneCircleNext, 5000);
-});
 
+function vmScrollLoad(){
+	var vmTimeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: '.video-meeting .display-board',
+			start: 'top 80%',
+			end: '+=1000',
+			toggleActions: 'restart pause reverse pause',
+			scrub: 1.5,
+			markers: false,
+		},
+	});
+	vmTimeline.set('.video-meeting .display-board', {
+		width: '138rem',
+	}).to('.video-meeting .display-board', {
+		width: '192rem',
+	});
+	ScrollTrigger.matchMedia({
+		"(max-width: 1023px)": function() {
+			vmTimeline.scrollTrigger.disable();
+		},
+		"(min-width: 1024px)": function() {
+			vmTimeline.scrollTrigger.enable();
+		},
+	});
+}
 
+function brandSlideLoad(){
+	var brandSwiper1 = new Swiper(".brand_slider.slide1", {
+		speed:8000,
+		slidesPerView:"auto",
+		observer:true,
+		observeParents:true,
+		loop:true,
+		freeMode:true,
+		autoplay:{
+			delay:1,
+			disableOnInteraction:false
+		}
+	});
+
+	var brandSwiper2 = new Swiper(".brand_slider.slide2", {
+		speed:8000,
+		slidesPerView:"auto",
+		observer:true,
+		observeParents:true,
+		loop:true,
+		freeMode:true,
+		autoplay:{
+			delay:1,
+			disableOnInteraction:false
+		}
+	});
+}
+
+function polarinLoad(){
+	var swiperPolarin = new Swiper(".realtime-slider", {
+		speed:2000,
+		loop:true,
+		autoplay: {
+			delay:5000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction"
+		}
+	});
+}
+
+function stgLoad() {
+	var stgList = $(".strength-tabslider > ul.left-tab > li").length-1;
+	var stgIdx = 0;
+	var stgTabNext = function(){
+		$(".strength-tabslider > ul.left-tab > li").removeClass("on");
+		$(".strength-tabslider > ul.strength-tabimg > li").removeClass("on").fadeOut();
+		if(stgIdx < stgList){stgIdx++}else{stgIdx = 0}
+		$(".strength-tabslider > ul > li:eq("+stgIdx+")").addClass("on");
+		$(".strength-tabslider > ul.strength-tabimg > li:eq("+stgIdx+")").addClass("on").fadeIn();
+	}
+
+	$(".strength-tabslider > ul.left-tab > li").hover(function(){
+		$(".strength-tabslider > ul.left-tab > li").removeClass("on");
+		$(".strength-tabslider > ul.strength-tabimg > li").removeClass("on").fadeOut();
+		clearInterval(stbTabAni);
+		$(this).addClass("on");
+		$(".strength-tabslider > ul.strength-tabimg > li:eq("+$(this).index()+")").addClass("on").fadeIn();
+		stgIdx = $(this).index();
+	},function(){
+		stbTabAni = setInterval(stgTabNext, 4000);
+	});
+
+	var stgTimeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: '.strength .strength-tabslider',
+			start: 'top 80%',
+			toggleActions: 'restart pause',
+			scrub: 1.5,
+			markers: false,
+		},
+	});
+	ScrollTrigger.matchMedia({
+		"(max-width: 1023px)": function() {
+			stgTimeline.scrollTrigger.disable();
+		},
+		"(min-width: 1024px)": function() {
+			$(".strength-tabslider > ul.left-tab > li:eq("+stgIdx+")").addClass("on");
+			$(".strength-tabslider > ul.strength-tabimg > li:eq("+stgIdx+")").addClass("on").fadeIn();	
+			stbTabAni = setInterval(stgTabNext, 4000);
+		},
+	});
+}
 </script>
 </body>
 </html>
