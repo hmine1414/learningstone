@@ -512,13 +512,16 @@ function polarinLoad(){
 			autoplay: {
 				delay:7000,
 				disableOnInteraction: false,
-			},			
+			}
 			mousewheel: true,
 			pagination: {
 				el: ".swiper-pagination-cnt",
 				type: 'fraction'
 			}
-		});
+		});		
+		/* swiperPolarin1.on('slideChangeTransitionEnd', function () {
+		  swiperPolarin1.mousewheel.disable();
+		}); */
 	}else{
 		var swiperPolarin2 = new Swiper(".realtime-slider", {
 			speed:1000,
