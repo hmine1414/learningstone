@@ -39,7 +39,7 @@
 		<div class="maincontents">
 			<div class="section mainvod">
 				 <div class="videobox">
-					<video muted autoplay loop>
+					<video muted autoplay loop playsinline>
 						<source src="resources/images//mainvisual.mp4" type="video/mp4">
 						<strong>Your browser does not support the video tag.</strong>
 					  </video>
@@ -175,7 +175,7 @@
 			</div>
 			<div class="section realtime-edu">
 				<div class="innerbox">
-					<h1><strong>실시간 화상 교육 폴라린</strong><span>서비스 커스터마이징이 가능한 화상 커뮤니케이션 솔루션</span></h1>
+					<h1><strong>실시간 화상 교육 <br class="mobile-only">폴라린</strong><span>서비스 커스터마이징이 가능한 화상 커뮤니케이션 솔루션</span></h1>
 					<div class="realtime-slider swiper-container">
 						<ul class="swiper-wrapper">
 							<li class="realtime-con1 swiper-slide">
@@ -321,18 +321,34 @@ function quickToggle(){
 function menuMove(menuName){
 	var tmEl = $("ul.topmenu");
 	tmEl.find("li").removeClass("on");
-	if (menuName === "req-learningstone"){
-		$("html, body").animate({scrollTop: ($(".req-learningstone").offset().top + 100)+"px"}, 500);
-		tmEl.find("li:nth-child(1)").addClass("on");
-	}else if (menuName === "our-function"){
-		$("html, body").animate({scrollTop: ($(".our-function").offset().top + 100)+"px"}, 500);
-		tmEl.find("li:nth-child(2)").addClass("on");
-	}else if (menuName === "realtime-edu"){
-		$("html, body").animate({scrollTop: $(".realtime-edu").offset().top+"px"}, 500);
-		tmEl.find("li:nth-child(3)").addClass("on");
-	}else if (menuName === "strength"){
-		$("html, body").animate({scrollTop: $(".strength").offset().top+"px"}, 500);
-		tmEl.find("li:nth-child(4)").addClass("on");
+	if ($(window).width() > 1024){	
+		if (menuName === "req-learningstone"){
+			$("html, body").animate({scrollTop: ($(".req-learningstone").offset().top + 100)+"px"}, 500);
+			tmEl.find("li:nth-child(1)").addClass("on");
+		}else if (menuName === "our-function"){
+			$("html, body").animate({scrollTop: ($(".our-function").offset().top + 100)+"px"}, 500);
+			tmEl.find("li:nth-child(2)").addClass("on");
+		}else if (menuName === "realtime-edu"){
+			$("html, body").animate({scrollTop: $(".realtime-edu").offset().top+"px"}, 500);
+			tmEl.find("li:nth-child(3)").addClass("on");
+		}else if (menuName === "strength"){
+			$("html, body").animate({scrollTop: $(".strength").offset().top+"px"}, 500);
+			tmEl.find("li:nth-child(4)").addClass("on");
+		}
+	}else{
+		if (menuName === "req-learningstone"){
+			$("html, body").animate({scrollTop: ($(".req-learningstone").offset().top - 90)+"px"}, 500);
+			tmEl.find("li:nth-child(1)").addClass("on");
+		}else if (menuName === "our-function"){
+			$("html, body").animate({scrollTop: ($(".our-function").offset().top - 60)+"px"}, 500);
+			tmEl.find("li:nth-child(2)").addClass("on");
+		}else if (menuName === "realtime-edu"){
+			$("html, body").animate({scrollTop: ($(".realtime-edu").offset().top - 100)+"px"}, 500);
+			tmEl.find("li:nth-child(3)").addClass("on");
+		}else if (menuName === "strength"){
+			$("html, body").animate({scrollTop: ($(".strength").offset().top - 100)+"px"}, 500);
+			tmEl.find("li:nth-child(4)").addClass("on");
+		}
 	}
 }
 
@@ -376,7 +392,7 @@ function stoneRollingLoad(){
 }
 
 function stoneCircleLoad(){
-	if ($(window).width() > 1280){
+	if ($(window).width() > 1024){
 		var liEl = $(".leargingstone-circle > ul.pc-only");
 		var tabEl = $(".circle-hiddencontents > ul");
 		var lsList = liEl.find("li.item").length-1;
@@ -489,7 +505,7 @@ function brandSlideLoad(){
 }
 
 function polarinLoad(){
-	if ($(window).width() > 1280){		
+	if ($(window).width() > 1024){		
 		var swiperPolarin1 = new Swiper(".realtime-slider", {
 			speed:1500,
 			loop:true,

@@ -97,8 +97,8 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 /* main */
 .maincontents .mainvod {position:relative; width:100%; height:100%; overflow:hidden}
 .maincontents .mainvod img {width:100%; height:100%}
-.maincontents .mainvod .videobox {position:relative; width:100%; height:100%; overflow:hidden; margin:0}
-.maincontents .mainvod .videobox video {width:100%; height:100%}
+.maincontents .mainvod .videobox {position:relative; width:100%; height:100%; overflow:hidden; margin:0; font-size:0}
+.maincontents .mainvod .videobox video {width:100%; height:100%; font-size:0}
 .maincontents .mainvod .quickbox {display:none}
 .maincontents .req-learningstone {position:relative; width:100%; height:190rem; background:#fff}
 .maincontents .req-learningstone .innerbox {width:138rem; height:100%; padding:24rem 0; margin:0 auto}
@@ -142,16 +142,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .video-meeting .display-board .board-item {display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; background-repeat:no-repeat; background-position:center; background-size:cover}
 .maincontents .video-meeting .display-board .board-item .board-wrap {display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center; position:relative; width:100vw; max-width:133.2rem}
 .maincontents .video-meeting .display-board .board-item .board-wrap .board-head {display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column}
-.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {margin:0; color:rgb(255, 255, 255)}
-
-@media (min-width:1024px) {
-	.maincontents .video-meeting .display-board .board-item .board-wrap {height:96rem}
-	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:6.4rem; line-height:8.4rem; font-weight:700; text-align:center}
-}
-@media (max-width:1023px) {
-	.maincontents .video-meeting .display-board .board-item .board-wrap {padding:0 3.6rem 5.2rem 3.6rem; height:50rem}
-	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:3.2rem; line-height:4.4rem; font-weight:700}
-}
+.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:6.4rem; line-height:8.4rem; font-weight:700; text-align:center; margin:0; color:rgb(255, 255, 255)}
 
 .maincontents .our-function {width:100%; height:auto; padding:24rem 0 12rem 0}
 .maincontents .our-function h1 {width:100%; margin:0 auto 0; text-align:center}
@@ -249,6 +240,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.mobile-only {display:block}
 
 	body {overflow-x:hidden; font-size:10px}
+	#wrap {overflow-x:hidden}
 
 	.tslide {position:relative; overflow-x:auto; overflow-y:hidden; white-space:nowrap}
 	.tslide > ul {position:relative; width:auto; -webkit-transition:-webkit-transform .4s ease-in-out; transition:-webkit-transform .4s ease-in-out; transition:transform .4s ease-in-out; transition:transform .4s ease-in-out, -webkit-transform .4s ease-in-out}
@@ -282,6 +274,9 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.maincontents .mainvod .quickbox > div a {color:#000; font-size:1.5rem; font-weight:700}
 	.maincontents .mainvod .quickbox > div a:first-child {width:95px}
 	
+	.maincontents .video-meeting .display-board .board-item .board-wrap {padding:0 3.6rem 5.2rem 3.6rem; height:50rem}
+	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:3.2rem; line-height:4.4rem; font-weight:700}
+	
 	.maincontents .req-learningstone .innerbox {width:100%; padding:18rem 0}	
 	
 	.maincontents .our-function {padding:18rem 0}
@@ -290,7 +285,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 
 @media screen and (max-width:768px) {
 	.header {position:relative; height:11.5rem; background:#000}
-	.header .header-inner ul.topmenu li a {font-size:1.6rem; text-stroke:0; -webkit-text-stroke:0; font-weight:600}
+	.header .header-inner ul.topmenu li a {font-size:1.75rem; text-stroke:0; -webkit-text-stroke:0; font-weight:600}
 	.header .header-inner ul.topmenu li a:hover {color:#511cc3; text-stroke:0; -webkit-text-stroke:0}
 	.header .header-inner ul.topmenu li.on a {color:#511cc3; text-stroke:0; -webkit-text-stroke:0}
 
@@ -304,17 +299,17 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.footer .innerbox .copyrights ul li p {font-size:1.6rem; line-height:2.6rem}
 	.footer .innerbox .copyrights > p {margin-top:2rem; font-size:1.2rem}
 
-	.maincontents .req-learningstone {height:125rem}
+	.maincontents .req-learningstone {height:122rem}
 	.maincontents .req-learningstone h1 span {font-size:1.6rem}
-	.maincontents .req-learningstone .innerbox {width:100%; padding:12rem 0 0 0}
+	.maincontents .req-learningstone .innerbox {width:100%; padding:9rem 0 0 0}
 	.maincontents .req-learningstone .leargingstone-circle-outer {width:100%; height:auto; margin-top:3rem}
 	.maincontents .req-learningstone .leargingstone-circle-outer::after {display:none}
 	.maincontents .req-learningstone .leargingstone-circle-outer::before {display:none}
 	.maincontents .req-learningstone .leargingstone-circle {position:relative; width:90%; height:57rem; background:none}
-	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents {position:relative; left:0; top:0; transform:0 0; width:100%; height:auto; margin-left:0; margin-top:0; background:url('../images/bg_imgbox_circle.png') no-repeat 50% 0; background-size:100% 100%}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents {position:relative; left:0; top:0; transform:n; width:100%; height:auto; margin-left:0; margin-top:0; background:url('../images/bg_imgbox_circle.png') no-repeat 50% 0; background-size:100% 100%}
 	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents::after {display:block; padding-bottom:100%; content:''}
 	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul {position:absolute; width:100%; height:100%; padding:3rem}
-	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul li {left:50%; top:50%; transform:translate(-50%, -50%); width:calc(100% - 5.4rem); height:calc(100% - 5.4rem)}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li {left:50%; top:50%; transform:translate(-50%, -50%); width:calc(100% - 5.4rem); height:calc(100% - 5.4rem)}
 	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-1 {background-size:100% auto}
 	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-2 {background-size:100% auto}
 	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li.stone-3 {background-size:100% auto}
@@ -327,10 +322,10 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.maincontents .req-learningstone h2 strong {font-size:10rem; line-height:15rem}
 
 	.maincontents .video-meeting {height:auto}
-	.maincontents .video-meeting .display-board {width:100%}
+	.maincontents .video-meeting .display-board {width:100%; max-width:100%}
 	
 	.maincontents .our-function {padding:12rem 0 6rem 0}
-	.maincontents .our-function h1 strong {font-size:3.6rem}
+	.maincontents .our-function h1 strong {font-size:3.8rem}
 	.maincontents .our-function h1 span {font-size:1.6rem}
 	.maincontents .our-function .slider_wrap {height:38rem}
 	.maincontents .our-function .slider_wrap .brand_slider {height:16rem}
@@ -359,7 +354,7 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 	.maincontents .realtime-edu .realtime-slider .swiper-pagination-m .swiper-pagination-bullet {width:1.2rem; height:1.2rem; margin:0 1rem; background:#dedede; border-radius:50%; font-size:0}
 	.maincontents .realtime-edu .realtime-slider .swiper-pagination-m .swiper-pagination-bullet.swiper-pagination-bullet-active {background:linear-gradient(#5a26e8, #f3039f)}
 
-	.maincontents .strength {background:url('../images/bg_strength_m.jpg') no-repeat 0 0}
+	.maincontents .strength {height:110rem; padding:15rem 0 0 0; background:url('../images/bg_strength_m.jpg') no-repeat 0 0; background-size:cover}
 	.maincontents .strength h1 {margin-bottom:5rem}
 	.maincontents .strength h1 strong {font-size:4.2rem; letter-spacing:0.02rem}
 	.maincontents .strength h1 span {font-size:1.6rem}
@@ -380,6 +375,45 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 
 @media all and (max-width:475px){
 	html {font-size:8.5px}
+
+	.footer {padding:4rem 0 2.5rem 0}
+
+	.maincontents .mainvod {min-height:25rem; height:auto; font-size:0}
+	
+	.maincontents .req-learningstone {height:108rem}
+	.maincontents .req-learningstone h2 {bottom:2rem; height:16rem}
+	.maincontents .req-learningstone h2 strong {height:16rem; line-height:12rem}
+	.maincontents .req-learningstone .leargingstone-circle {height:50rem}	
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul li {width:calc(100% - 4.6rem); height:calc(100% - 4.6rem)}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li strong {font-size:3.2rem; font-weight:600}
+	.maincontents .req-learningstone .leargingstone-circle .circle-hiddencontents > ul > li p {font-size:1.6rem; line-height:2.2rem}
+	
+	.maincontents .video-meeting .display-board .board-item .board-wrap {padding:0 2rem; height:35rem}
+	.maincontents .video-meeting .display-board .board-item .board-wrap .board-head .board-subject {font-size:3.2rem; letter-spacing:0.03rem}
+
+	.maincontents .our-function {padding:9rem 0 4rem 0}
+	.maincontents .our-function .slider_wrap {height:33rem; margin-top:7rem}
+	.maincontents .our-function .slider_wrap .brand_slider {height:13em}
+	.maincontents .our-function .slider_wrap .brand_slider .brand_item {width:18rem; height:13rem; margin-right:1.5rem}
+	.maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {font-size:18px}
+	.maincontents .our-function .slider_wrap .brand_slider:nth-child(even) {margin-top:1.5rem}
+	.maincontents .our-function .slider_wrap .brand_slider:nth-child(even) .brand_item {margin-left:1.5rem}
+
+	.maincontents .realtime-edu {padding:4rem 0}
+	.maincontents .realtime-edu h1 strong {font-size:3.8rem}
+	.maincontents .realtime-edu .realtime-slider {height:60rem}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt strong {height:3rem; background-size:auto 2.4rem !important}
+	.maincontents .realtime-edu .realtime-slider ul li dl dt span {margin-top:1.8rem; font-size:3rem; line-height:3.4rem}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con1 dl dt strong {}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con2 dl dt strong {}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con3 dl dt strong {}
+	.maincontents .realtime-edu .realtime-slider ul li.realtime-con4 dl dt strong {}
+
+	.maincontents .strength {height:auto; min-height:97rem; padding:8rem 0 0 0}
+	.maincontents .strength h1 {margin-bottom:3.5rem}
+	.maincontents .strength h1 strong {font-size:3.8rem}
+	.maincontents .strength .strength-tabslider ul.left-tab {width:calc(100% - 3.5rem); margin-left:3.5rem}
+
 }
 
 
