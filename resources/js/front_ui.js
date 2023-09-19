@@ -9,8 +9,7 @@ var frontUI = function() {
 
 	$(document).ready(function(){
 		me.firstLoad();
-		console.log(isMobile);
-		console.log($(window).width()+","+$(window).height())
+		me.headerFixed();
 	});
 
 	$(window).resize(function(){		
@@ -24,11 +23,7 @@ var frontUI = function() {
 	});
 
 	$(window).scroll(function() {
-		if(me.desk.matches) {
-			me.headerFixed();
-		}else{
-			$(".header").removeClass("toFixed");
-		}
+		me.headerFixed();
 	});
 	
 	if(me.mobile.matches){
@@ -46,6 +41,7 @@ frontUI.prototype = {
 			$("#wrap").animate({opacity:1});
 		}, 200)
 	},
+
 	headerFixed: function(){
 		var me = this;
 		var scrollTop = $(window).scrollTop();
@@ -55,8 +51,7 @@ frontUI.prototype = {
 		}else {
 			$(".header").removeClass("toFixed");
 		}
-	},
-}
+	},}
 
 var front = new frontUI ();
 

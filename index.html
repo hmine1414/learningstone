@@ -58,11 +58,15 @@
 								<li class="trs"></li>
 								<li class="trs"></li>
 								<li class="trs"></li>
-								<li class="trs"></li>
 								<li class="item stone-1 on">전문교육기관</li>
 								<li class="item stone-2">교육솔루션 업체</li>
 								<li class="item stone-3">교육전문가</li>
 								<li class="item stone-4">학습자</li>
+								<li class="trs"></li>
+								<li class="trs"></li>
+								<li class="trs"></li>
+								<li class="trs"></li>
+								<li class="trs"></li>
 							</ul>
 							<ul class="mobile-only">
 								<li class="item stone-1 on">전문교육기관</li>
@@ -226,6 +230,7 @@
 							</li>
 						</ul>
 						<div class="swiper-pagination-m"></div>
+						<div class="swiper-pagination-cnt"></div>
 					</div>
 				</div>
 			</div>
@@ -295,6 +300,11 @@ vmScrollLoad();
 brandSlideLoad();
 polarinLoad();
 stgLoad();
+scrollMenuActive();
+$(window).scroll(function(){
+	scrollMenuActive();
+});
+
 
 function goTop(){
 	$("html, body").animate({scrollTop: "0"}, 1000);
@@ -332,23 +342,19 @@ function scrollMenuActive(){
 		tmEl.find("li").removeClass("on");
 		tmEl.find("li:nth-child(1)").addClass("on");
 	}
-	if ($(window).scrollTop() > $(".our-function").offset().top){
+	if ($(window).scrollTop() > $(".our-function").offset().top - 100){
 		tmEl.find("li").removeClass("on");
 		tmEl.find("li:nth-child(2)").addClass("on");
 	}
-	if ($(window).scrollTop() > ($(".realtime-edu").offset().top - 100)){
+	if ($(window).scrollTop() > ($(".realtime-edu").offset().top - 200)){
 		tmEl.find("li").removeClass("on");
 		tmEl.find("li:nth-child(3)").addClass("on");
 	}
-	if ($(window).scrollTop() > $(".strength").offset().top){
+	if ($(window).scrollTop() > $(".strength").offset().top - 100){
 		tmEl.find("li").removeClass("on");
 		tmEl.find("li:nth-child(4)").addClass("on");
 	}
 }
-scrollMenuActive();
-$(window).scroll(function(){
-	scrollMenuActive();
-});
 
 function stoneRollingLoad(){
 	var radius = 383; 
@@ -364,7 +370,7 @@ function stoneRollingLoad(){
 	  if (window.console) {
 		console.log($(this).text(), x, y);
 	  }
-	  $(this).css({left: x + 'px', top: y + 'px'});
+	  $(this).css({right: x + 'px', bottom: y + 'px'});
 	  angle += step;
 	});
 }
@@ -399,6 +405,7 @@ function stoneCircleLoad(){
 		});
 	}else{
 		var liEl = $(".leargingstone-circle > ul.mobile-only");
+		var tabEl = $(".circle-hiddencontents > ul");
 		var lsList = liEl.find("li.item").length-1;
 		var lsIdx = 0;
 		var scNext = function(){
@@ -482,18 +489,34 @@ function brandSlideLoad(){
 }
 
 function polarinLoad(){
-	var swiperPolarin = new Swiper(".realtime-slider", {
-		speed:2000,
-		loop:true,
-		autoplay: {
-			delay:5000,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: ".swiper-pagination-m",
-			clickable: true,
-		}
-	});
+	if ($(window).width() > 1280){		
+		var swiperPolarin1 = new Swiper(".realtime-slider", {
+			speed:1500,
+			loop:true,
+			autoplay: {
+				delay:7000,
+				disableOnInteraction: false,
+			},			
+			mousewheel: true,
+			pagination: {
+				el: ".swiper-pagination-cnt",
+				type: 'fraction'
+			}
+		});
+	}else{
+		var swiperPolarin2 = new Swiper(".realtime-slider", {
+			speed:1000,
+			loop:true,
+			autoplay: {
+				delay:7000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: ".swiper-pagination-m",
+				clickable: true
+			}
+		});
+	}
 }
 
 function stgLoad() {
@@ -532,11 +555,13 @@ function stgLoad() {
 	});
 	ScrollTrigger.matchMedia({
 		"(max-width: 1023px)": function() {
+			stgTimeline.scrollTrigger.disable();
 			leftTabEl.find("li:eq("+stgIdx+")").addClass("on");
 			imgTabEl.find("li:eq("+stgIdx+")").addClass("on").fadeIn();	
 			stbTabAni = setInterval(stgTabNext, 5000);
 		},
 		"(min-width: 1024px)": function() {
+			stgTimeline.scrollTrigger.enable();
 			leftTabEl.find("li:eq("+stgIdx+")").addClass("on");
 			imgTabEl.find("li:eq("+stgIdx+")").addClass("on").fadeIn();	
 			stbTabAni = setInterval(stgTabNext, 5000);
