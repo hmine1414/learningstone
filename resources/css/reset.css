@@ -65,10 +65,10 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .header .header-inner .logo a {display:block; width:100%; height:100%; background:url('../images/logo_p_w.png') no-repeat 0 0; background-size:100% auto; font-size:0; text-indent:-9999rem}
 .header .header-inner ul.topmenu {width:45rem; height:3rem; display:flex; align-items:center; justify-content:space-between}
 .header .header-inner ul.topmenu li a {position:relative; height:3rem; -webkit-text-stroke:1px #e9e9e9; text-stroke:1px #e9e9e9; color:#fff; font-size:2rem; transition:color 0.2s; font-weight:400; line-height:3rem}
-.header .header-inner ul.topmenu li a:hover {color:#000; -webkit-text-stroke:0; text-stroke:0}
-.header .header-inner ul.topmenu li.on a {color:#000; -webkit-text-stroke:0; text-stroke:0; font-weight:700}
+.header .header-inner ul.topmenu li a:hover {color:#000; -webkit-text-stroke:0; text-stroke:0; font-weight:800}
+.header .header-inner ul.topmenu li.on a {color:#000; -webkit-text-stroke:0; text-stroke:0; font-weight:800}
 .header .header-inner .btnset {height:4.8rem}
-.header .header-inner .btnset button {width:10.5rem; height:4.8rem; margin-left:0.8rem; background:#fff; border:2px solid #000; border-radius:0.8rem; transition:all 0.3s; font-size:1.6rem; color:#000; font-weight:700}
+.header .header-inner .btnset button {width:10.5rem; height:4.8rem; margin-left:0.8rem; overflow:hidden; background:#fff; border:2px solid #000; border-radius:0.8rem; transition:all 0.3s; font-size:1.6rem; color:#000; font-weight:700}
 .header .header-inner .btnset button.inquiry:hover {border:0; background-image:linear-gradient(#4a29f0 0%, #fd019a 100%); background-origin:border-box; background-clip:content-box, border-box; color:#fff}
 .header .header-inner .btnset button.btn-download {width:15rem; margin-left:0}
 
@@ -79,7 +79,8 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .header.toFixed .header-inner ul.topmenu li.on a {color:#511cc3}
 .header.toFixed .header-inner .btnset button.btn-inquiry {transition:background 0.3s; background-image:linear-gradient(#4a29f0 0%, #fd019a 100%); background-origin:border-box; background-clip:content-box, border-box; border:0; color:#fff}
 .header.toFixed .header-inner .btnset button.btn-inquiry:hover {background-image:linear-gradient(#280db4 0%, #ae016e 100%)}
-.header.toFixed .header-inner .btnset button.btn-download {border:1px solid #dfdfdf; color:#000}
+.header.toFixed .header-inner .btnset button.btn-download {position:relative; border:1px solid #dfdfdf; border-radius:0.8rem; color:#000}
+.header.toFixed .header-inner .btnset button.btn-download::before {position:absolute; left:-1px; top:-1px; width:calc(100% + 2px); height:calc(100% + 2px); border-radius:0.8rem; background:transparent; border:1px solid #dfdfdf; content:''}
 .header.toFixed .header-inner .btnset button.btn-download:hover {background:#000; border-color:#000; color:#fff}
 
 .footer {position:relative; height:66rem; padding:11rem 0 0 0; background:url('../images/bg_footer.jpg') no-repeat 50% / cover}
@@ -160,10 +161,8 @@ body, button, input, textarea, select, pre, p, table, td, tr, strong, span, em, 
 .maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {position:absolute; top:0; left:0; display:flex; align-items:center; justify-content:center; width:100%; height:100%; background:rgba(0,0,0,0.4); text-align:center; opacity:0; visibility:hidden; transition:.3s; color:#fff; font-size:2.8rem; font-weight:700}
 .maincontents .our-function .slider_wrap .brand_slider .brand_item .hover-txt {opacity:1; visibility:visible}
 
-.maincontents.scrollFixed {position:fixed; left:0; top:8.8rem; z-index:48; width:100%; height:100%}
-.maincontents.scrollFixed .realtime-edu {width:100%; height:100%}
 
-.maincontents .realtime-edu {height:100%; padding:11rem 0 0 0; background:#fff}
+.maincontents .realtime-edu.scrollFixed {position:fixed; left:0; top:8.8rem; z-index:48; width:100%; height:100%; padding:11rem 0 0 0; background:#fff}
 .maincontents .realtime-edu h1 {width:100%; max-width:138rem; margin:0 auto 0; text-align:center}
 .maincontents .realtime-edu h1 strong {display:block; color:#000; font-size:6.4rem; font-weight:700}
 .maincontents .realtime-edu h1 span {display:block; margin-top:2rem; color:#797979; font-size:2.2rem; font-weight:400; letter-spacing:0.02rem}
