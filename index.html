@@ -331,6 +331,7 @@ function menuMove(menuName){
 		}else if (menuName === "realtime-edu"){
 			$("html, body").animate({scrollTop: $(".realtime-edu").offset().top+"px"}, 500);
 			tmEl.find("li:nth-child(3)").addClass("on");
+			$(".maincontents").addClass("scrollFixed");
 		}else if (menuName === "strength"){
 			$("html, body").animate({scrollTop: $(".strength").offset().top+"px"}, 500);
 			tmEl.find("li:nth-child(4)").addClass("on");
@@ -509,17 +510,19 @@ function polarinLoad(){
 		var swiperPolarin1 = new Swiper(".realtime-slider", {
 			speed:1500,
 			loop:true,
+			
 			autoplay: {
 				delay:7000,
 				disableOnInteraction: false,
-			},
+			}, 
 			mousewheel: true,
 			pagination: {
 				el: ".swiper-pagination-cnt",
 				type: 'fraction'
 			}
-		});		
-		/* swiperPolarin1.on('slideChangeTransitionEnd', function () {
+		});
+		/* 
+		swiperPolarin1.on('slideChangeTransitionEnd', function () {
 		  swiperPolarin1.mousewheel.disable();
 		}); */
 	}else{
